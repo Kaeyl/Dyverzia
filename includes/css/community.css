@@ -1,0 +1,471 @@
+:root {
+  --background: linear-gradient(123deg, rgb(0 99 255 / 2%) 0%, rgb(255 0 250 / 2%) 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  max-width: 100vw;
+  height: 100vh;
+  background: var(--background);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.contentContainer {
+  max-width: 100vw;
+}
+
+.communityMainContainer {
+  margin: 0 22rem;
+  max-width: 100vw;
+  min-width: 75%;
+  border-radius: 0 0 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.coverPhoto {
+  position: relative;
+  height: 30rem; /* Adjust height as needed */
+  background-image: url('includes/images/<?php echo htmlspecialchars($cover_picture); ?>');
+  background-size: cover;
+  background-position: center;
+  border-radius: 1rem;
+  filter: brightness(0.5); /* Darken the background */
+}
+
+.coverTitle {
+  position: absolute;
+  width: 30rem;
+  top: 25%;
+  left: 10%;
+  right: 10%;
+  transform: translateX(125%);
+  color: white;
+  z-index: 1;
+}
+
+.communityHead {
+  margin-top: 20px; /* Add margin for spacing */
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.communityProfilePic {
+  transform: translate(-2.5rem, -10rem);
+  width: 15rem;
+  height: 15rem;
+  border-radius: 15rem;
+  object-fit: cover;
+  border: 1rem solid #ffffff;
+}
+.communityName {
+  font-size: 2.5rem;
+}
+
+.communityActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.followButton, .likeButton {
+  background-color: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.profileContentPanel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  background-color: white;
+  padding: 0 2rem;
+  min-width: 75%;
+  max-width: 70vw;
+  border-radius: 1rem;
+  margin: 0 22rem;
+}
+
+hr {
+  margin: 2rem 56rem;
+  align-items: center;
+  border: 1px solid #ebebeb;
+  border-radius: 1rem;
+}
+
+.postFeed {
+  padding: 2rem;
+}
+
+.postContainer {
+  background-color: white;
+  padding: 0 2rem;
+  min-width: 75%;
+  border-radius: 1rem;
+}
+
+.postArea {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.createPostContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: column;
+  margin: 3rem 0;
+}
+
+.activePost {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  list-style: none;
+  background-color: rgba(255, 255, 255, 0.555);
+  border-radius: 1rem;
+  margin: 3rem 1rem;
+  padding: 0 3rem;
+  gap: 4rem;
+}
+
+.activePost img {
+  border-radius: 1rem;
+  object-fit: cover;
+  height: 30rem;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  border-radius: 0.5rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  max-width: 50rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 500;
+}
+
+.close-button {
+  color: #aaa;
+  background-color: white;
+  border: none;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.createPostButton {
+  background-color: #ff00c342;
+  color: white;
+  border: none;
+  padding: 1rem;
+  margin: 2rem 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+form.createPostContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+select#postTopic {
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+textarea#txt {
+  max-width: 50rem;
+  min-width: 50rem;
+  max-height: 25rem;
+  min-height: 10rem;
+}
+
+input[type="text"], textarea {
+  padding: 1rem;
+  width: 100%;
+  overflow: scroll;
+  margin: 0.5rem 0;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.postButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.posts {
+  width: 100%;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.memberList {
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+.memberList ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.memberList li {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.memberList img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.postHeading {
+  display: flex;
+  align-items: center;
+}
+
+.additionalInformation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.category {
+  border-radius: 0.5rem;
+  border: 1px solid #000000;
+  padding: 0.5rem;
+}
+
+.userPostButtons {
+  display: flex;
+  gap: 1rem;
+  margin: 0 0 3rem 0;
+}
+
+.like {
+  border-radius: 1rem 0 0 1rem;
+}
+
+.share {
+  border-radius: 0 1rem 1rem 0;
+}
+
+.userPostButtons img {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 0;
+}
+
+.like, .comment, .share {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: none;
+  border: 1px solid rgba(254, 198, 233, 0.39);
+  height: 3rem;
+  background: rgba(203, 198, 254, 0.124);
+}
+
+.like:hover, .comment:hover, .share:hover {
+  transition: 0.5s;
+  scale: 1.05;
+  background: rgba(228, 198, 254, 0.124);
+}
+
+.like img, .comment img, .share img {
+  margin: 0 1rem;
+}
+
+.userPostButtons a {
+  width: 100%;
+  text-decoration: none;
+  color: black;
+}
+
+li.activePost {
+  padding: 0;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+.modal-content {
+  background-color: #fefefe;
+  border-radius: 1rem;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+.splitViewProfileUpdate {
+  display: flex;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button.close-button {
+  border: none;
+  background-color: white;
+}
+
+button.close-button:focus {
+  border: solid 1px black;
+}
+
+.updateProfileFormContainer, .updateCoverPhotoFormContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.conentContainerModal {
+  padding: 5% 20%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+form#editProfileForm, form#editcoverPhotoForm {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.fname label, .lname label, .email label, .uploadCoverPhoto label, .hobbies label {
+  min-width: 10rem;
+}
+
+.fname, .lname, .email, .hobbies, .profileEditButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+input#emailUpdate, input#userfname, input#userlnameUpdate, input#hobbiesUpdate {
+  font-size: 1rem;
+  padding: 0 1rem;
+  width: 20rem;
+  border-radius: 1rem;
+  height: 3rem;
+}
+
+input#profileUpdateSubmit {
+  margin: 3rem auto;
+  width: 15rem;
+}
+
+.hobbiesList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.hobbiesList li {
+  list-style: none;
+  display: inline-block;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid black;
+  height: 1rem;
+}
+
+input[type="submit"] {
+  background-color: white;
+  width: 10rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+button#submitCoverPhotoChange {
+  background-color: white;
+  width: 10rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+
+.coverPhotoViewSelect {
+  height: 25rem;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}

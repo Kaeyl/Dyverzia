@@ -1,0 +1,232 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  background-color: white; /* White background */
+  width: 100%;
+}
+
+.dropbtn {
+  color: #4A4A4A; /* Dark gray for button text */
+  margin: 1rem 1rem;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  background: white; /* White background */
+}
+
+.labelHide {
+  margin-left: -99999px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: white; /* No change on hover */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  border-radius: 1rem;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9; /* Very light gray */
+  box-shadow: 0px 8px 16px 0px rgba(135, 135, 135, 0.2);
+}
+
+.dropdown-content a {
+  display: flex;
+  color: #4A4A4A; /* Dark gray for links */
+  padding: 12px 0 12px 15px;
+  text-decoration: none;
+  justify-content: start;
+}
+
+.dropdown a:hover {
+  background-color: rgba(106, 142, 202, 0.2); /* Soft blue hover effect */
+}
+
+.show {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  gap: 1rem;
+  right: 2rem;
+  width: 21rem;
+  background-color: white;
+  z-index: 1000000;
+}
+
+li.logo {
+  list-style: none;
+  margin-left: 5rem;
+}
+
+ul.nav-logo {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  margin-right: 3rem;
+}
+
+input#searchBar {
+  border: 1px solid rgba(0, 110, 255, 0.5); /* Light soft blue for borders */
+  border-radius: 1rem;
+  font-size: 1.3rem;
+  width: 15rem;
+  height: 3rem;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+.nav_links {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-right: 1rem;
+}
+
+.nav_links li {
+  display: flex;
+  flex-shrink: inherit;
+}
+
+.nav_links li a {
+  color: #4A4A4A; /* Dark gray for link text */
+  padding: 2rem 1rem 1rem 1rem;
+  text-decoration: none;
+}
+
+#logoImage {
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+  width: 4rem;
+  height: 4rem;
+}
+
+.leftContent {
+  display: flex;
+  align-items: center;
+}
+
+.nvaElements {
+  width: 100%;
+}
+
+.nav_links img {
+  width: 2rem;
+  height: 2rem;
+}
+
+img.dropbtn {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 5rem;
+  object-fit: cover;
+  border: 6px double #4A4A4A; /* Dark gray border */
+}
+
+#dropDownHr {
+  margin: 0 2rem;
+}
+
+.highlight {
+  filter: brightness(0) saturate(100%) invert(60%) sepia(67%) saturate(615%) hue-rotate(1deg) brightness(99%) contrast(97%);
+}
+
+.notification-count {
+  font-size: smaller;
+  color: #FF6B6B; /* Soft red for notification count */
+  margin-left: 5px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white; /* White background for dropdown */
+  min-width: 20rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.notification-dropdown-content {
+  margin: 7rem -5rem;
+  border-radius: 1rem;
+  display: none;
+  position: absolute;
+  background-color: white; /* White background for notification dropdown */
+  min-width: 20rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.notification-item {
+  padding: 10px;
+  border-bottom: 1px solid #ccc; /* Light gray border */
+}
+
+.notification-item:last-child {
+  border-bottom: none; /* No border on the last item */
+}
+
+.dropdown-content {
+  display: none; /* Hidden by default */
+}
+
+.dropdown-content.show {
+  display: block; /* Show the dropdown when 'show' class is added */
+}
+
+
+
+
+/* test  */
+
+/* General styles */
+/* .nvaElements {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+
+/* Burger Menu Styles */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.burger-menu .line {
+  height: 3px;
+  width: 25px;
+  background-color: black;
+  margin: 3px 0;
+}
+
+/* Navigation Links */
+.nav_links {
+  list-style: none;
+  display: flex;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .nav_links {
+      display: none; /* Hide nav links by default */
+      flex-direction: column;
+      position: absolute;
+      top: 60px; /* Adjust based on your header height */
+      left: 0;
+      right: 0;
+      background-color: white; /* Adjust based on your design */
+  }
+  .nav_links.show {
+      display: flex; /* Show on toggle */
+  }
+  .burger-menu {
+      display: flex; /* Show burger menu */
+  }
+}

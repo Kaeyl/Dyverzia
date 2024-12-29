@@ -1,0 +1,538 @@
+/* Primary CSS file */
+
+/* color palette: soft blues and purples */
+:root {
+  --soft-blue: #A3C1E0; /* Soft blue */
+  --soft-purple: #E2C6E2; /* Soft purple */
+  --dark-gray: #4A4A4A; /* Dark gray */
+}
+
+/* Reset styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* Ensure padding and border are included in width and height */
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* ------------------core elements------------------------ */
+body {
+  width: 100%;
+  height: 100%;
+  background: white; /* White background */
+}
+
+h1 {
+  font-size: 5rem;
+  color: var(--dark-gray); /* Dark gray for heading */
+}
+
+.heading {
+  text-align: center;
+  margin: 5rem auto; /* Center horizontally */
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px; /* Set max width for larger screens */
+  margin: 0 auto; /* Center container */
+}
+
+.wellContainer {
+  width: 100%; /* Use full width */
+  max-width: 300px; /* Set max width for well container */
+  margin: 14rem auto; /* Center with automatic left and right margins */
+}
+
+.wellMove {
+  width: 100%; /* Use full width */
+  max-width: 300px; /* Set max width for wellMove */
+  position: fixed;
+}
+
+.well {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+h3 {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  color: var(--dark-gray); /* Dark gray for headings */
+}
+
+input.form-control {
+  height: 3rem;
+  width: 100%;
+}
+
+.search {
+  display: flex;
+}
+
+button.btn.btn-primary {
+  height: 1.6rem;
+  background-color: var(--soft-purple); /* Soft purple for button */
+  color: white; /* White text */
+}
+
+.input-group {
+  width: 100%;
+}
+
+.BlogTitleContent {
+  font-size: large;
+  margin: 1rem 0;
+  color: var(--dark-gray); /* Dark gray for blog title */
+}
+
+.blogTitle, p.lead {
+  margin: 1rem 0;
+  color: var(--dark-gray); /* Dark gray for text */
+}
+
+.bottomBlogPostContainer p {
+  margin: 2rem 0 3rem 0;
+}
+
+.list-unstyled {
+  list-style: none;
+}
+
+section.contactUsSection {
+  height: 100%;
+}
+
+.formFieldcContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.formContainer {
+  padding: 0 10rem;
+}
+
+.formField {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.formField input {
+  padding: 0 1rem;
+}
+
+textarea#message {
+  padding: 1rem;
+  width: 100%;
+  height: 200px;
+  border: 1px solid rgba(150, 150, 150, 0.5);
+  border-radius: 1rem;
+}
+
+.formField input, textarea#message {
+  border: 1px solid rgb(150, 150, 150);
+  border-radius: 1rem;
+}
+
+.btn1:hover {
+  background: rgba(0, 38, 255, 0.62); /* Soft blue hover */
+  color: white; /* White text on hover */
+}
+
+/* utility */
+.utilityPanel {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  box-shadow: 1px 1px 20px 2px rgba(0, 0, 0, 0.1);
+}
+
+.utilityContainer li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+img.utilityImage {
+  width: 2rem;
+  height: 2rem;
+}
+
+.utilityContainer li p {
+  font-size: 1.1rem;
+}
+
+.utilityPanel h3, .friendPannel h3, .community h3 {
+  margin: 5rem 0;
+  color: var(--dark-gray); /* Dark gray for section headings */
+}
+
+.feedContainer {
+  width: 100%;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Adjust for smaller screens */
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  align-items: start;
+}
+
+.friendActivity {
+  padding: 0.5rem 0;
+  border-radius: 1rem;
+  width: 100%;
+  grid-column: span 4; /* Span all columns */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Allow scrolling */
+  height: 475px; /* Fixed height */
+}
+
+.activity {
+  border-radius: 1rem;
+  height: 100%;
+}
+
+.activity ul {
+  gap: 1rem;
+  margin: 0.5rem 0.5rem;
+  justify-content: center;
+  display: flex;
+  list-style: none;
+}
+
+.activity ul li:hover {
+  transition: 0.6s;
+  scale: 1.05;
+  filter: brightness(170%);
+}
+
+.activity a {
+  border-radius: 1rem;
+}
+
+.activity img {
+  width: 100%; /* Responsive image */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 1rem;
+  object-fit: cover;
+  filter: brightness(40%);
+}
+
+.avtityOverlayText {
+  position: relative;
+  border-radius: 0 0 1rem 1rem;
+  line-height: 1.5rem;
+  overflow: hidden;
+}
+
+.activity a {
+  text-decoration: none;
+}
+
+.activity p, .avtityOverlayText h3 {
+  color: white;
+}
+
+/* community panel */
+.leftPannel {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  min-width: 15rem;
+}
+
+.community {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 1px 1px 20px 2px rgba(0, 0, 0, 0.1);
+}
+
+.utilityPanel ul li {
+  height: 5rem;
+  text-decoration: none;
+  list-style: none;
+}
+
+.communityEvent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+a#communityElement {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--dark-gray);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  height: 2rem;
+}
+
+/* Make Friends */
+.makeFriendPannel {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+}
+
+.makeFriendList ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+  gap: 0.5rem;
+}
+
+.makeFriendList ul li {
+  list-style: none;
+}
+
+.makeFriendUsername h4 {
+  color: white;
+  position: absolute;
+  margin: -3rem 0 0 0.5rem;
+  text-decoration: none;
+}
+
+.makeFriendImage img {
+  width: 100%; /* Responsive image */
+  height: auto; /* Maintain aspect ratio */
+  filter: brightness(50%);
+}
+
+.makeFriendList a p {
+  display: flex;
+  justify-content: end;
+  margin: 1rem 0;
+}
+
+/* friendPannel */
+.friendPannel {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  list-style: none;
+  padding: 1rem 2rem;
+}
+
+.friendList {
+  gap: 1rem;
+}
+
+.friendList ul {
+  list-style: none;
+}
+
+.friendList li {
+  max-height: 50rem;
+  margin: 3rem 0;
+}
+
+.friendList p {
+  max-width: 100ch;
+  overflow: hidden;
+}
+
+.userElement {
+  box-shadow: 1px 1px 20px 2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  overflow: hidden;
+  max-height: 20rem;
+  border-radius: 1rem;
+}
+
+.friendImageRightSide {
+  min-width: 30%;
+  max-width: 30%;
+}
+
+.infromationUser {
+  margin: 0 1rem;
+}
+
+.infromationUser h4 {
+  margin: 1rem 0;
+}
+
+.infromationUser p {
+  line-height: 3rem;
+}
+
+.friendPannel img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover;
+}
+
+.friendPannel.userButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userButtons {
+  margin: 1rem 0 0 0;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+.userButtons button {
+  width: 100%;
+}
+
+.postArea {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: -2rem 0;
+}
+
+.activePost {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  list-style: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  margin: 3rem 1rem;
+  padding: 0 3rem;
+  gap: 4rem 0;
+}
+
+.activePostul ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.activePost p {
+  font-size: 1.2rem;
+  letter-spacing: 1.5px;
+  margin: 0;
+  color: var(--dark-gray); /* Dark gray for text */
+}
+
+.activePost h3 {
+  margin: 2rem 0 0 0;
+  color: var(--dark-gray); /* Dark gray for headings */
+}
+
+.activePost img {
+  border-radius: 1rem;
+  object-fit: cover;
+  height: auto; /* Maintain aspect ratio */
+  max-height: 30rem; /* Set max height */
+}
+
+.userPostButtons {
+  display: flex;
+  gap: 1rem;
+  margin: 0 0 3rem 0;
+}
+
+.like {
+  border-radius: 1rem 0 0 1rem;
+}
+
+.share {
+  border-radius: 0 1rem 1rem 0;
+}
+
+.userPostButtons img {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 0;
+}
+
+.like, .comment, .share {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: none;
+  border: 1px solid rgba(254, 198, 233, 0.39);
+  height: 3rem;
+  background: rgba(203, 198, 254, 0.124); /* Soft background */
+}
+
+.like:hover, .comment:hover, .share:hover {
+  transition: 0.5s;
+  scale: 1.05;
+  background: rgba(228, 198, 254, 0.124);
+}
+
+.like img, .comment img, .share img {
+  margin: 0 1rem;
+}
+
+.userPostButtons a {
+  width: 100%;
+  text-decoration: none;
+  color: var(--dark-gray); /* Dark gray for link text */
+}
+
+li.activePost {
+  box-shadow: 1px 1px 20px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+/* Media Queries */
+@media (max-width: 1000px) {
+  .feedContainer {
+    grid-template-columns: repeat(2, 1fr); /* Adjust grid for smaller screens */
+  }
+
+  .friendActivity {
+    grid-column: span 2; /* Span 2 columns */
+    height: auto; /* Adjust height */
+  }
+
+  .makeFriendList ul {
+    grid-template-columns: repeat(2, 1fr); /* Adjust for smaller screens */
+  }
+
+  .friendPannel, .postArea {
+    max-width: 100%; /* Allow full width */
+    grid-column: span 2; /* Span 2 columns */
+  }
+
+  .activePost img {
+    width: 100%; /* Responsive image */
+  }
+}
+
+@media (max-width: 769px) {
+  .feedContainer {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+  }
+
+  .friendActivity {
+    grid-column: span 1; /* Span full width */
+    height: auto; /* Adjust height */
+  }
+
+  .makeFriendList ul {
+    grid-template-columns: repeat(1, 1fr); /* Single column layout */
+  }
+
+  .friendPannel, .postArea {
+    grid-column: span 1; /* Span full width */
+  }
+
+  .activePost img {
+    width: 100%; /* Responsive image */
+  }
+
+  .userPostButtons {
+    flex-direction: column; /* Stack buttons */
+  }
+}

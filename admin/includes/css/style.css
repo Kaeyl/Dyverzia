@@ -1,0 +1,388 @@
+/* General Styles */
+body {
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f7fa; /* Light background */
+    color: #212529; /* Dark text color */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.header-content {
+    display: flex;
+    width: 100%;
+    gap: 3rem;
+}
+
+nav {
+    padding: 0 1rem;
+    display: flex;
+}
+
+.nav {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Display items inline */
+    flex-direction: column; /* Default direction */
+}
+
+.nav-item {
+    width: 100%;
+    margin: 10px 0;
+    display: flex; /* Align image and link inline */
+    align-items: center;
+}
+
+.nav-link {
+    display: flex; /* Use flex to align image and link */
+    align-items: center;
+    padding: 10px 15px;
+    color: #212529; /* Dark links */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s; /* Smooth transition */
+    width: 150px; /* Fixed width for all nav links */
+    justify-content: flex-start; /* Align text and image to the start */
+}
+
+.nav img {
+    max-height: 2rem; /* Keep icon size */
+    max-width: 2rem;
+    margin-right: 10px; /* Space between image and text */
+}
+
+/* Collapsed state */
+.collapsed .nav-link {
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.collapsed .nav-link span {
+    display: none; /* Hide the text */
+}
+
+.collapse-button {
+    display: flex;
+    align-items: center;
+    border: none; /* Remove default border */
+    background-color: #f5f7fa; 
+    color: white; /* Text color for visibility */
+    padding: 10px 15px; /* Add some padding */
+    border-radius: 5px; /* Rounded corners to match nav links */
+    cursor: pointer; /* Change cursor on hover */
+    margin-top: 1rem; /* Space above the button */
+    transition: background-color 0.3s; /* Smooth transition */
+    width: 100%; /* Full width to match nav items */
+}
+
+.collapse-button img {
+    margin-right: 8px; /* Space between image and text */
+    width: 2rem; /* Adjust size to match nav images when collapsed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* When the sidebar is collapsed */
+.sidebar.collapsed .collapse-button img {
+    width: 2rem; /* Smaller size for the image when collapsed */
+}
+
+.sidebar.collapsed .collapse-button span {
+    display: none; /* Hide text when collapsed */
+}
+
+.sidebar.collapsed .nav-link img {
+    margin-right: 0; /* Remove space when collapsed */
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: #20C9B0; /* Softer teal for hover and active */
+    color: #000000; 
+}
+
+.sidebar .nav {
+    margin-bottom: 60px; /* Add space for the button */
+}
+
+.sidebar .nav img { 
+    max-height: 2rem;
+    max-width: 2rem;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    /* height: 100vh; */
+}
+
+/* Header Styles */
+header {
+    background-color: #6F42C1; /* Softer primary color for header */
+    padding: 10px 20px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.search-bar {
+    border-radius: 20px; /* Rounded search bar */
+    padding: 5px 15px;
+    border: none;
+    width: 250px;
+}
+
+.user-profile {
+    margin-left: auto;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: relative; /* Make sure the button positioning works */
+    transition: width 0.5s ease; /* Smooth transition for width */
+    width: 200px; /* Set a defined width for the expanded state */
+    overflow: hidden;
+}
+
+.sidebar.collapsed {
+    width: 3rem; /* Collapsed width */
+}
+
+.nav-link {
+    display: flex; /* Align icon and text */
+    align-items: center;
+}
+
+.nav-link img {
+    margin-right: 0.5rem; /* Space between icon and text */
+}
+
+.sidebar.collapsed .nav-link span {
+    display: none; /* Hide text in collapsed state */
+}
+
+.sidebar.collapsed .nav-link img {
+    width: 1.5rem; /* Adjust icon size if necessary */
+}
+
+/* Main Content Area */
+.main-content {
+    max-width: 90%;
+    max-height: calc(92vh - 60px); /* Adjust based on header height */
+    overflow: scroll;
+    flex-grow: 1; /* Take remaining space */
+    padding: 20px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between cards */
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #dee2e6; /* Light border for cards */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    flex: 1 1 30%; /* Responsive cards */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #20C9B0; /* Softer teal for card titles */
+}
+
+.analytics-section,
+.requests-section {
+    margin-top: 20px;
+}
+
+h2 {
+    border-bottom: 2px solid #6F42C1; /* Underline for section titles */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #5A33B2; /* Dark purple for headers */
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    /* background-color: #fff; */
+    border-bottom: 1px solid #e1e1e1;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* tr:hover {
+    background-color: #B3E3E0; 
+} */
+
+.tableRowProfilePicture img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Scrollable Table Container */
+.table-container {
+    max-height: 400px; /* Set your desired max height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Hide horizontal overflow */
+    margin-top: 20px; /* Add some space above the table */
+    border: 1px solid #dee2e6; /* Optional: Add border around the table */
+    border-radius: 8px; /* Optional: Match table rounding */
+    background-color: white; /* Optional: Match table background */
+}
+
+
+
+@media (max-width: 768px) {
+    th, td {
+        padding: 8px 10px;
+    }
+
+    .tableRowProfilePicture img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .sidebar {
+        width: 100%; /* Full width on smaller screens */
+        height: auto; /* Allow sidebar to expand */
+    }
+
+    .nav {
+        flex-direction: row; /* Inline on smaller screens */
+    }
+
+    .nav-item {
+        margin: 0 5px; /* Reduce space between items */
+    }
+}
+
+/* Footer Styles */
+footer {
+    position: fixed; /* Change to fixed */
+    width: 100%;
+    bottom: 0;
+    background-color: #343a40; /* Dark footer */
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1000; /* Optional: Ensures footer stays on top of other content */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        position: static; /* Remove sticky for mobile */
+        height: auto; /* Allow sidebar to expand */
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    .header-content {
+        flex-direction: column; /* Stack elements */
+    }
+
+    .search-bar {
+        width: 100%; /* Full width on smaller screens */
+        margin-top: 10px;
+    }
+}
+
+.highlight {
+    background-color: rgb(255 0 0 / 8.1%);
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    border-radius: 1rem;
+    margin: auto; /* Center the modal */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Adjust width as necessary */
+    position: relative; /* Required for centering */
+    top: 50%; /* Align the top of the modal */
+    transform: translateY(-50%); /* Center vertically */
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+select#statusOptions {
+    margin: 1rem 0;
+    height: 2rem;
+    border-radius: 0.54rem;
+}
+button#statusOptionsSubmit {
+    height: 2rem;
+    border-radius: 0.5rem;
+}

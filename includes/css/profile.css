@@ -1,0 +1,653 @@
+:root {
+  --background: linear-gradient(342deg, rgba(226,198,226,1) 10%, rgba(163,193,224,1) 50%);
+  --soft-blue: #A3C1E0; /* Soft blue */
+  --soft-purple: #A18DCC; /* Soft purple */
+  --dark-purple-hover: #8B6BC8; /* Darker purple for hover*/
+  --dark-gray: #4A4A4A; /* Dark gray */
+}
+
+
+
+/* testing layout*/
+
+:root {
+  --background: linear-gradient(123deg, rgb(0 99 255 / 2%) 0%, rgb(255 0 250 / 2%) 100%);
+}
+
+/* Existing Styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: var(--background);
+}
+.userHeadInformationContainer{
+/* display: flex;
+flex-direction: row;
+justify-content: space-between; */
+width: 100%;
+gap: 2rem;
+}
+.profilePagePrimaryContainer {
+    margin: 0px 20%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+
+}
+.contentContainer {
+    width: 100%;
+    grid-column: 1 / 3;
+}
+.userMoodPanel {
+    grid-column: 3;
+}
+
+.profileMainContainer {
+    display: grid;
+    grid-template-rows: auto 1fr; /* Adjusting for header and content */
+    height: 89vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(243, 242, 242) white;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    border-radius: 0 0 1rem 1rem;
+    background-color: white;
+}
+
+
+
+.coverPhoto {
+
+        object-fit: cover;
+        filter: brightness(80%);
+        height: 23rem;
+        width: 100%;
+        border-radius: 5rem;
+    }
+
+
+.profileHead {
+    display: flex;
+    z-index: 99999;
+    align-items: center;
+    gap: 5rem;
+    /* transform: translate(0, -5rem); */
+    margin: 0 2rem; /* Added margin for mobile view */
+}
+    
+.profilePicContainer {
+    margin: 0 auto;
+}
+
+img.profilePic {
+    width: 15rem;
+    height: 15rem;
+    z-index: 99999;
+    border-radius: 15rem;
+    object-fit: cover;
+    border: 1rem solid #ffffff;
+    /* margin: -6.5rem -2rem; */
+}
+
+.profileInfo {
+    /* transform: translate(-6.1rem, 5rem); */
+    background-color: white;
+    width: 100%; /* Full width on mobile */
+    padding: 1rem; /* Adjusted padding */
+
+}
+
+.userNameAndPronouns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+h1.profileName {
+    font-size: 2rem; /* Adjusted font size for mobile */
+}
+
+h2.profileSubHeading {
+    margin: 1rem 0;
+}
+
+p.profileSubHeading {
+    font-size: 1.5rem;
+}
+
+button.followButton, button.editProfileButton {
+    background-color: var(--soft-purple);
+
+    font-weight: 900;
+    margin: 1rem 0;
+    padding: 1rem;
+    width: 30%; /* Full width buttons */
+    border-radius: 0.5rem;
+}
+button.followButton:hover, button.editProfileButton:hover {
+    background-color: var(--dark-purple-hover);
+
+}
+
+
+
+
+
+/* testing */
+
+
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+.emojiModal .modal-content{
+    display: block;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.emoji-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); /* Adjust size as needed */
+    gap: 1rem; /* Space between emojis */
+    margin-top: 10px; /* Space above the grid */
+}
+
+.emoji-button {
+    font-size: 24px; /* Adjust emoji size */
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.2s, transform 0.2s; /* Added transform to transition */
+}
+
+.emoji-button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Light background on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.emoji-button.selected {
+    border: 2px solid #007BFF; /* Highlight selected button */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.userPostsTitle, .connectionsTitle {
+    margin: 2rem 0;
+}
+
+.connections {
+    height: 25rem;
+    align-items: center;
+    width: 100%; /* Full width */
+}
+
+.friendList {
+    background-color: rgb(255, 255, 255);
+    padding: 0 5rem;
+    width: 100%; /* Full width on mobile */
+    border-radius: 1rem;
+}
+
+.friendList ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0;
+    /* justify-content: space-between; */
+}
+
+.postArea {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.userFeedContainer {
+    display: flex;
+    flex-direction: column; /* Stack posts vertically */
+    width: 100%; /* Full width */
+    padding: 1rem; /* Added padding */
+}
+
+.postContainer {
+    background-color: white;
+    padding: 0 1rem; /* Adjusted padding for mobile */
+    border-radius: 1rem;
+    margin: 1rem 0; /* Space between posts */
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 999999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+.modal-content {
+    /* display: flex; */
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    /* align-items: stretch;  */
+    background-color: #fefefe;
+    border-radius: 1rem;
+    margin: 15% auto;
+    padding: 20px;
+    width: 50%;
+
+    height: auto; /* Allow height to adjust based on content */
+    /* max-height: 80%;  */
+    border: 1px solid #888;
+    position: relative;
+}
+
+.modal-content button:nth-child(1) {
+
+    width: 1.5rem;    
+    height: 1.5rem;
+    border-radius: 0.3rem;
+    position: absolute; /* Position the button absolutely */
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+}
+.modal-content button:nth-child(2):hover {
+    background-color: var(--dark-purple-hover);
+
+}
+
+.modal-content button:nth-child(2) {
+    font-weight: 900;
+    background-color: var(--soft-purple);
+    width: 5rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+}
+
+
+.contentContainerModal {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 1rem 0;
+    flex-grow: 1;
+    margin-top: 50px;
+}
+
+form#editcoverPhotoForm {
+    display: flex;
+    flex-direction: column;
+    gap:1rem; 
+    /* margin: 1rem 0; */
+}
+
+form#editProfileForm {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.splitViewProfileUpdate {
+    display: flex;
+    flex-wrap: wrap;
+}
+.splitViewProfileUpdate input {
+width: 100%;
+padding: 1rem;
+height: 1.5rem;
+border-radius: 0.5rem;
+margin: 0.5rem 0;
+}
+
+.updateProfileFormContainer {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+}
+.extraAreaOfInterest {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+.hobbiesListing ul li {
+    margin: 1rem 0;
+}
+
+.userAdditionalInfromation {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+textarea, input#title {
+    padding: 1rem;
+    height: 3rem;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+      font-size: 1.2rem; /* Adjust font size for inputs */
+      width: 100%; /* Full width */
+  }
+  textarea#txt {
+    height: 8rem;
+}
+
+
+
+#profileUpdateSubmit {
+    width: 10rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    /* padding: 1rem; */
+}
+
+.friendList li {
+    list-style:none;
+}
+
+.friendImage img {
+    border-radius: 100%;
+    width: 5rem;
+    height: 5rem;
+}
+
+
+/* Main post container */
+.activePost {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 1rem 0;
+    /* padding: 20px; */
+    transition: transform 0.2s;
+    list-style: none; /* Remove default list styling */
+}
+
+/* Remove list styling from <li> */
+.activePost {
+
+    display: block; /* Ensures it's a block element */
+}
+
+.activePost:hover {
+    transform: translateY(-5px);
+}
+
+/* Post heading styles */
+.postHeading {
+    margin-bottom: 15px;
+}
+
+.postHeading h3 {
+    font-size: 1.5rem;
+    color: black;
+}
+
+.timeStamp {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Post content styles */
+.activePost p {
+    line-height: 1.6;
+    /* margin-bottom: 15px; */
+}
+
+/* Image styles */
+.activePost img {
+    margin: 0 auto;
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block; /* Ensure there's no inline spacing */
+}
+
+/* Button container styles */
+.userPostButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+/* Button styles */
+.userPostButtons a {
+    text-decoration: none;
+    color: #007BFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    transition: background 0.2s;
+    flex-grow: 1; /* Ensure buttons grow to fill space without exceeding image width */
+    max-width: calc(33% - 10px); /* Set a maximum width for buttons */
+}
+
+.userPostButtons a:hover {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+/* Icon styles */
+.userPostButtons img {
+
+    width: 20px;
+    height: 20px;
+    /* margin-right: 5px; */
+}
+.like, .comment, .share{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: right;
+}
+
+input.postButton {
+    margin: 1.5rem 0;
+    width: 8rem;
+    border-radius: 0.5rem;
+    height: 2rem;
+}
+
+.userStatistics{
+    display: flex;
+    flex-direction: column;
+    /* max-height: 500px; */
+    gap: 2rem;
+    max-width: 500px;
+    /* max-height: 500px; */
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+
+    body {
+        display: flex;
+        flex-direction: column; /* Stack children vertically */
+        justify-content: center; /* Center elements vertically */
+        height: 100vh; /* Full viewport height */
+    }
+
+    .profilePagePrimaryContainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 1rem; /* Space between grid items */
+        width: 100%;
+    }
+    
+    .userConnections {
+        display: flex;
+        flex-direction: column; /* This makes the content stack vertically */
+        align-items: center; /* This centers the content horizontally */
+        justify-content: center; /* This centers the content vertically if the height is set */
+        padding: 1rem; /* Optional: Adds padding inside each column */
+        min-height: 300px; /* Optional: To give each column some height */
+    }
+    
+.userImageAndCover {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    gap: 1rem;
+}
+
+    .profileMainContainer {
+        display: grid;
+        grid-template-rows: auto 1fr; /* Adjusting for header and content */
+        max-width: 1200px;
+        width: 100%;
+        border-radius: 0 0 1rem 1rem;
+        background-color: white;
+        margin: 0 auto; /* Center the container */
+        align-items: center; /* Center content vertically */
+    }
+    
+    .userMoodPanel {
+        width: 100%;
+        display: flex; /* Use flex to center mood panel */
+        justify-content: center; /* Center mood panel */
+    }
+
+    .profileHead {
+        display: flex;
+        flex-direction: column; /* Stack profile head elements */
+        align-items: center; /* Center align items */
+        gap: 2rem; /* Adjust gap for vertical layout */
+    }
+
+
+    .profileInfo {
+    transform: translate(0, 0);
+
+    }
+
+    button.followButton, button.editProfileButton {
+        width: 100%; /* Full width buttons */
+        margin-top: 1rem; /* Space between buttons */
+        display: block; /* Ensure buttons are block elements */
+        text-align: center; /* Center text in buttons */
+    }
+
+    .userFeedContainer {
+        padding: 1rem; /* Add padding */
+        display: flex;
+        flex-direction: column; /* Stack posts vertically */
+        align-items: center; /* Center align posts */
+    }
+
+    /* Adjust other elements for mobile view */
+    .friendList {
+        width: 100%; /* Full width on mobile */
+    }
+
+    .postContainer {
+        width: 100%; /* Full width on mobile */
+    }
+
+    input#user_upload_pic {
+        width: 100%; /* Full width for file input */
+    }
+
+    .activePost img {
+        margin: 0 auto;
+        width: 100%; /* Make images full width */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    textarea, input#title {
+        padding: 1rem;
+        height: 3rem;
+        margin: 1rem 0;
+        border-radius: 0.5rem;
+        font-size: 1.2rem; /* Adjust font size for inputs */
+        width: 100%; /* Full width */
+    }
+
+    textarea#txt {
+        height: 8rem;
+    }
+
+    /* Adjust modal width */
+    .modal-content {
+        width: 90%; /* Full width on mobile */
+    }
+
+    .activePost {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .postHeading h3 {
+        font-size: 1.25rem;
+    }
+
+    .userPostButtons {
+        flex-direction: column;
+        align-items: stretch; /* Align buttons to stretch to full width */
+    }
+
+    .userPostButtons a {
+        width: 100%;
+        margin-bottom: 5px;
+        max-width: none; /* Remove max-width on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .postHeading h3 {
+        font-size: 1.1rem;
+    }
+
+    .timeStamp {
+        font-size: 0.8rem;
+    }
+}
+

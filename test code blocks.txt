@@ -1,0 +1,9 @@
+redirect from home page to login if user is not logged in
+
+<?php session_start(); 
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+  $welcomeMessage = "Welcome back , " . $_SESSION['given_name'] . "!";
+} else {
+  header('Location: ./login_page.php');
+}
+?>
